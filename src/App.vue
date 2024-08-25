@@ -2,16 +2,11 @@
   <Application :width="sizes.width" :height="sizes.height" :background-alpha="0" class="overlay">
     <MainScene/>
   </Application>
-  <v-row>
-    <v-col>
-      sadesdaefdweaf
-    </v-col>
-  </v-row>
 </template>
 
 <script setup lang="ts">
 import { Application } from 'vue3-pixi';
-import MainScene from '@/components/MainScene.vue';
+import MainScene from '@/components/scenes/MainScene.vue';
 import { useDisplay } from 'vuetify';
 import { computed, ref, watch } from 'vue';
 
@@ -23,8 +18,6 @@ const sizes = ref({
 });
 
 const getSizes = () => {
-  console.log(document.getElementById('app').clientWidth);
-  console.log(document.getElementById('app').clientHeight);
   sizes.value = {
     width: document.getElementById('app').clientWidth,
     height: height.value + 1,
