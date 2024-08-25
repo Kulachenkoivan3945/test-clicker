@@ -11,8 +11,10 @@
   "dependencies": {
     "pinia": "^2.2.0",
     "pinia-plugin-persistedstate": "^3.2.1",
+    "pixi.js": "latest",
     "vue": "^3.4.31",
     "vue-router": "^4.4.1",
+    "vue3-pixi": "latest",
     "vuetify": "^3.6.14"
   },
   "devDependencies": {

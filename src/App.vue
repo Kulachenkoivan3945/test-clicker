@@ -1,26 +1,48 @@
-<template class="app-container">
-  <v-container class="app-container d-flex flex-column align-center">
-    <OverlayScene/>
-<!--    <ClickerTabs class="d-flex align-center clickers-tabs"/>-->
-  </v-container>
+<template>
+  <Application :width="sizes.width" :height="sizes.height" :background-alpha="0" class="overlay">
+    <MainScene/>
+  </Application>
+  <v-row>
+    <v-col>
+      sadesdaefdweaf
+    </v-col>
+  </v-row>
 </template>
-<script setup>
-import OverlayScene from '@/components/OverlayScene.vue';
-import ClickerTabs from '@/components/ClickerTabs.vue';
+
+<script setup lang="ts">
+import { Application } from 'vue3-pixi';
+import MainScene from '@/components/MainScene.vue';
+import { useDisplay } from 'vuetify';
+import { computed, ref, watch } from 'vue';
+
+const { width, height } = useDisplay();
+
+const sizes = ref({
+  width: window.innerWidth,
+  height: window.innerHeight,
+});
+
+const getSizes = () => {
+  console.log(document.getElementById('app').clientWidth);
+  console.log(document.getElementById('app').clientHeight);
+  sizes.value = {
+    width: document.getElementById('app').clientWidth,
+    height: height.value + 1,
+  };
+};
+
+watch([width, height], () => {
+  console.log('asd');
+  getSizes();
+});
 </script>
 
 <style scoped>
-.app-container{
-  max-width: 100vw;
-  min-width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
+.overlay{
+  z-index: -1;
+  position: absolute;
+  top:0;
+  left: 0;
+
 }
-
-
-:deep(.v-slide-group__content){
-  justify-content: center;
-}
-
 </style>
